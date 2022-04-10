@@ -12,7 +12,14 @@ function isNumberOdLetterNotSmall($numberOfLetters)
         return false;
     }
 }
+function isNumberOdLetterNotBig($numberOfLetters) {
+    if ($numberOfLetters <=250) {
+        return true;
+    } else {
+        return false;
+    }
 
+}
 
 
 
@@ -36,7 +43,7 @@ var_dump($number);
 $numberOfLetters = mb_strlen($body); 
 var_dump ($numberOfLetters);
 
-if (isNumberOdLetterNotSmall($numberOfLetters) && $numberOfLetters <= 250 && $number >= 2 && $number <= 50) {
+if (isNumberOdLetterNotSmall($numberOfLetters) && isNumberOdLetterNotBig($numberOfLetters) && $number >= 2 && $number <= 50) {
 	 
     $sql = 'INSERT INTO my_post (headline, body) VALUES (:headline, :body)';
     var_dump ($sql);
@@ -57,7 +64,7 @@ if (isNumberOdLetterNotSmall($numberOfLetters) && $numberOfLetters <= 250 && $nu
 	if (!isNumberOdLetterNotSmall($numberOfLetters)) {
 	    echo "Текст поста должен быть больше 10 символов";
 	}
-	if ($numberOfLetters > 250) {
+	if (!isNumberOdLetterNotBig($numberOfLetters)) {
 	    echo "Текст поста должен быть меньше 250 символов";
 	}
 }
