@@ -12,14 +12,28 @@ function isNumberOdLetterNotSmall($numberOfLetters)
         return false;
     }
 }
-function isNumberOdLetterNotBig($numberOfLetters) {
-    if ($numberOfLetters <=250) {
+function isNumberOdLetterNotBig($numberOfLetters)
+{
+    if ($numberOfLetters <= 250) {
         return true;
     } else {
         return false;
     }
-
 }
+function isNumberBig($number)  {
+        if ($number >= 2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+function isNumberSmall($number) {
+        if ($number <= 50) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
 
@@ -43,7 +57,7 @@ var_dump($number);
 $numberOfLetters = mb_strlen($body); 
 var_dump ($numberOfLetters);
 
-if (isNumberOdLetterNotSmall($numberOfLetters) && isNumberOdLetterNotBig($numberOfLetters) && $number >= 2 && $number <= 50) {
+if (isNumberOdLetterNotSmall($numberOfLetters) && isNumberOdLetterNotBig($numberOfLetters) &&  isNumberBig($number) && isNumberSmall($number)) {
 	 
     $sql = 'INSERT INTO my_post (headline, body) VALUES (:headline, :body)';
     var_dump ($sql);
@@ -53,12 +67,12 @@ if (isNumberOdLetterNotSmall($numberOfLetters) && isNumberOdLetterNotBig($number
         'headline' => $headline,
         'body' => $body,
     ]);
-
+    print "Ваш пост сохранен";
 } else {
-	if ($number < 2) { 
+	if (!isNumberBig($number)) {
 	    echo "Заголовок должен быть больше 2 символов";
 	}
-	if ($number > 50){
+	if (!isNumberSmall($number)) {
 	    echo "Заголовок должен быть меньше 50 символов";
 	}
 	if (!isNumberOdLetterNotSmall($numberOfLetters)) {
