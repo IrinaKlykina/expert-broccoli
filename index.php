@@ -57,7 +57,7 @@ var_dump($number);
 $numberOfLetters = mb_strlen($body); 
 var_dump ($numberOfLetters);
 
-if (isNumberOdLetterNotSmall($numberOfLetters) && isNumberOdLetterNotBig($numberOfLetters) &&  isNumberBig($number) && isNumberSmall($number)) {
+if (isNumberOdLetterNotSmall($numberOfLetters) && isNumberOdLetterNotBig($numberOfLetsters) &&  isNumberBig($number) && isNumberSmall($number)) {
 	 
     $sql = 'INSERT INTO my_post (headline, body) VALUES (:headline, :body)';
     var_dump ($sql);
