@@ -13,9 +13,13 @@ class Database
        $this->dbh= new PDO('mysql:host=localhost;dbname=test', 'root', '');
     }
 
-    public function getAllPosts()
+    public function savePost()
     {
 
+    }
+
+    public function getAllPosts()
+    {
         $sth = $this->dbh->prepare('SELECT * from my_post');
         $sth->execute();
         $data = $sth->fetchAll();

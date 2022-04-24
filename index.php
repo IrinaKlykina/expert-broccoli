@@ -54,13 +54,15 @@ $numberOfLetters = mb_strlen($body);
 
 
 if (isNumberOdLetterNotSmall($numberOfLetters) && isNumberOdLetterNotBig($numberOfLetters) &&  isNumberBig($number) && isNumberSmall($number)) {
-	 
+
+    //начало
     $sql = 'INSERT INTO my_post (headline, body) VALUES (:headline, :body)';
     $stmt= $db->dbh->prepare($sql);
     $result = $stmt->execute([
         'headline' => $headline,
         'body' => $body,
     ]);
+    //конец
     print "Ваш пост сохранен";
 } else {
 	if (!isNumberBig($number)) {
