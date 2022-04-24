@@ -20,28 +20,25 @@ function isNumberOdLetterNotBig($numberOfLetters)
         return false;
     }
 }
-function isNumberBig($number)  {
-        if ($number >= 2) {
-            return true;
-        } else {
-            return false;
-        }
+function isNumberBig($number)
+{
+    if ($number >= 2) {
+        return true;
+    } else {
+        return false;
     }
-function isNumberSmall($number) {
-        if ($number <= 50) {
-            return true;
-        } else {
-            return false;
-        }
+}
+function isNumberSmall($number)
+{
+    if ($number <= 50) {
+        return true;
+    } else {
+        return false;
     }
+}
 
 
-
-echo '<pre>';
-var_dump($_POST);
-echo '</pre>';
-
-include(__DIR__ . '/index.html');
+include(__DIR__ . 'view/index.html');
 $dbh = new PDO('mysql:host=localhost;dbname=test', 'root', '');
 $sth = $dbh->prepare('SELECT * from my_post');
 $sth->execute();
@@ -51,13 +48,10 @@ $headline = $_POST['headline'];
 $body = $_POST['body'];
 
 $number = mb_strlen($headline);
-var_dump($number);
+$numberOfLetters = mb_strlen($body);
 
-		
-$numberOfLetters = mb_strlen($body); 
-var_dump ($numberOfLetters);
 
-if (isNumberOdLetterNotSmall($numberOfLetters) && isNumberOdLetterNotBig($numberOfLetsters) &&  isNumberBig($number) && isNumberSmall($number)) {
+if (isNumberOdLetterNotSmall($numberOfLetters) && isNumberOdLetterNotBig($numberOfLetters) &&  isNumberBig($number) && isNumberSmall($number)) {
 	 
     $sql = 'INSERT INTO my_post (headline, body) VALUES (:headline, :body)';
     var_dump ($sql);
@@ -82,4 +76,6 @@ if (isNumberOdLetterNotSmall($numberOfLetters) && isNumberOdLetterNotBig($number
 	    echo "Текст поста должен быть меньше 250 символов";
 	}
 }
+//MVC - модель, вьюшка, контроллер
 ?>
+
