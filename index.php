@@ -3,6 +3,8 @@ ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
+require_once (__DIR__ . '/model/Database.php');
+
 
 function isNumberOdLetterNotSmall($numberOfLetters)
 {
@@ -38,12 +40,11 @@ function isNumberSmall($number)
 }
 
 
-include(__DIR__ . 'view/index.html');
+include(__DIR__ . '/view/index.html');
 
 $db = new \model\Database();
 $data = $db->getAllPosts();
 var_dump($data);
-die();
 
 $headline = $_POST['headline'];
 $body = $_POST['body'];
@@ -55,7 +56,7 @@ $numberOfLetters = mb_strlen($body);
 if (isNumberOdLetterNotSmall($numberOfLetters) && isNumberOdLetterNotBig($numberOfLetters) &&  isNumberBig($number) && isNumberSmall($number)) {
 	 
     $sql = 'INSERT INTO my_post (headline, body) VALUES (:headline, :body)';
-    $stmt= $dbh->prepare($sql);
+    $stmt= $db->dbh->prepare($sql);
     $result = $stmt->execute([
         'headline' => $headline,
         'body' => $body,
