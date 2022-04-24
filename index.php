@@ -39,10 +39,11 @@ function isNumberSmall($number)
 
 
 include(__DIR__ . 'view/index.html');
-$dbh = new PDO('mysql:host=localhost;dbname=test', 'root', '');
-$sth = $dbh->prepare('SELECT * from my_post');
-$sth->execute();
-$data = $sth->fetchAll();
+
+$db = new \model\Database();
+$data = $db->getAllPosts();
+var_dump($data);
+die();
 
 $headline = $_POST['headline'];
 $body = $_POST['body'];
@@ -54,9 +55,7 @@ $numberOfLetters = mb_strlen($body);
 if (isNumberOdLetterNotSmall($numberOfLetters) && isNumberOdLetterNotBig($numberOfLetters) &&  isNumberBig($number) && isNumberSmall($number)) {
 	 
     $sql = 'INSERT INTO my_post (headline, body) VALUES (:headline, :body)';
-    var_dump ($sql);
     $stmt= $dbh->prepare($sql);
-    var_dump ($stmt);
     $result = $stmt->execute([
         'headline' => $headline,
         'body' => $body,
