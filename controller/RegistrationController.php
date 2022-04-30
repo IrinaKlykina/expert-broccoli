@@ -3,6 +3,7 @@
 namespace controller;
 
 use PDO;
+use model\Database;
 
 class RegistrationController
 {
@@ -14,8 +15,9 @@ class RegistrationController
         if (!isset ($_POST)) {
             include(__DIR__ . '/view/reg_form.html');
         }
-        $dbh = new PDO('mysql:host=localhost;dbname=test', 'root', '');
-        $sth = $dbh->prepare('SELECT * from user');
+        $db = new \model\Database();
+
+        $sth = $db->dbh->prepare('SELECT * from user');
         $sth->execute();
         $data = $sth->fetchAll();
 
@@ -27,7 +29,7 @@ class RegistrationController
 
         if ($number >= 6 && $user->age >= 18) {
             $sql = 'INSERT INTO user (password, login, name, age, gender) VALUES (:password, :login, :name, :age, :gender)';
-            $stmt = $dbh->prepare($sql);
+            $stmt = $db->dbh->prepare($sql);
             $result = $stmt->execute([
                 'login' => $user->login,
                 'name' => $user->name,
