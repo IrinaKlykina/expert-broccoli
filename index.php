@@ -56,8 +56,8 @@ $numberOfLetters = mb_strlen($body);
 if (isNumberOdLetterNotSmall($numberOfLetters) && isNumberOdLetterNotBig($numberOfLetters) &&  isNumberBig($number) && isNumberSmall($number)) {
 	 
     $sql = 'INSERT INTO my_post (headline, body) VALUES (:headline, :body)';
-    $stmt= $db->dbh->prepare($sql);
-    $result = $stmt->execute([
+    $db->stmt= $db->dbh->prepare($sql);
+    $result = $db->stmt->execute([
         'headline' => $headline,
         'body' => $body,
     ]);
