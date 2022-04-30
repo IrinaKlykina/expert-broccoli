@@ -2,6 +2,8 @@
 
 namespace controller;
 
+use PDO;
+
 class RegistrationController
 {
     public function indexAction()
@@ -38,7 +40,7 @@ class RegistrationController
                 echo "Пароль должен быть минимум 6 символов";
             }
             if ($number < 6 || $user->password !== $user->confirmPassword) {
-                include(__DIR__ . '/view/reg_form.html');
+                include(__DIR__ . '/../view/reg_form.html');
             }
             if ($user->age < 18) {
                 echo "Сюда нельзя!";
