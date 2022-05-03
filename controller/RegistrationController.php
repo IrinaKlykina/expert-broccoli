@@ -44,7 +44,7 @@ class RegistrationController
             if ($number < 6 || $user->password !== $user->confirmPassword) {
                 include(__DIR__ . '/../view/reg_form.html');
             }
-            if ($user->age < 18) {
+            if ($user->age< 18) {
                 echo "Сюда нельзя!";
             }
             if ($user->password !== $user->confirmPassword) {
