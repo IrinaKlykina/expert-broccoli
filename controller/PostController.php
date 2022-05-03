@@ -8,7 +8,7 @@ class PostController
 {
     public function indexAct()
     {
-        //  require_once 'model/Database.php';
+        //  require_once 'model/';
 
             function isNumberOdLetterNotSmall($numberOfLetters)
             {
@@ -26,7 +26,7 @@ class PostController
                 } else {
                     return false;
                 }
-            }
+          }
 
             function isNumberBig($number)
             {
