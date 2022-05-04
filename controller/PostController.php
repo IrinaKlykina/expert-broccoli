@@ -68,7 +68,7 @@ class PostController
                 ]);
                 print "Ваш пост сохранен";
             } else {
-                if (!isNumberBig($number)) {
+                if (!isNumberBig($umber)) {
                     echo "Заголовок должен быть больше 2 символов";
                 }
                 if (!isNumberSmall($number)) {
