@@ -47,8 +47,7 @@ class RegistrationController
     {
         require_once 'model/User.php';
 
-
-        if (!isset ($_POST)) {
+        if (empty($_POST)) {
             include(__DIR__ . '/../view/reg_form.html');
         }
         $db = new \model\Database();
@@ -57,11 +56,8 @@ class RegistrationController
         $sth->execute();
         $data = $sth->fetchAll();
 
-
         $user = new \model\User($_POST);
         $number = strlen($user->password);
-
-
 
         if ($this->isPasswordBig($number) && $this->isAgeBig($user->age) && $user->password == $user->confirmPassword) {
             $sql = 'INSERT INTO user (password, login, name, age, gender) VALUES (:password, :login, :name, :age, :gender)';
