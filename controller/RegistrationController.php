@@ -7,12 +7,49 @@ use model\Database;
 
 class RegistrationController
 {
+    public function isPasswordBig($number)
+    {
+        if ($number >= 6) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function isPasswordSmall($number)
+    {
+        if ($number < 6) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function isAgeBig($user)
+    {
+        if ($user->age >= 18) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function isAgeSmall($age)
+    {
+        if ($age < 18) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function indexAction()
     {
         require_once 'model/User.php';
 
+
         if (!isset ($_POST)) {
-            include(__DIR__ . '/view/reg_form.html');
+            include(__DIR__ . '/../view/reg_form.html');
         }
         $db = new \model\Database();
 
@@ -20,12 +57,13 @@ class RegistrationController
         $sth->execute();
         $data = $sth->fetchAll();
 
-        $user = new \model\User($_POST);
 
+        $user = new \model\User($_POST);
         $number = strlen($user->password);
 
 
-        if (($number >= 6) && ($user->age >= 18) && ($user->password == $user->confirmPassword)) {
+
+        if ($this->isPasswordBig($number) && $this->isAgeBig($user->age) && $user->password == $user->confirmPassword) {
             $sql = 'INSERT INTO user (password, login, name, age, gender) VALUES (:password, :login, :name, :age, :gender)';
             $stmt = $db->dbh->prepare($sql);
             $result = $stmt->execute([
@@ -36,13 +74,13 @@ class RegistrationController
                 'gender' => $user->gender,
             ]);
         } else {
-            if ($number < 6) {
+            if (!$this->isPasswordSmall($number)) {
                 echo "Пароль должен быть минимум 6 символов";
             }
-            if (($number < 6) || ($user->password !== $user->confirmPassword)) {
+            if (!$this->isPasswordSmall($number) || $user->password !== $user->confirmPassword) {
                 include(__DIR__ . '/../view/reg_form.html');
             }
-            if ($user->age< 18) {
+            if (!$this->isAgeSmall ($user->age)) {
                 echo "Сюда нельзя!";
             }
             if ($user->password !== $user->confirmPassword) {
