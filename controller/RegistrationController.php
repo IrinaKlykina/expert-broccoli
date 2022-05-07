@@ -9,10 +9,7 @@ class RegistrationController
 {
     public function indexAction()
     {
-
-
         require_once 'model/User.php';
-
 
         if (!isset ($_POST)) {
             include(__DIR__ . '/view/reg_form.html');
