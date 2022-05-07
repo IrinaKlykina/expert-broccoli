@@ -21,7 +21,7 @@ class RegistrationController
 
         $user = new \model\User($_POST);
 
-        if ($user->isPasswordValid() && $user->isAgeBig() && $user->password == $user->confirmPassword) {
+        if ($user->isPasswordValid() && $user->isAgeBig() && $user->isConfirmValid()) {
             $sql = 'INSERT INTO user (password, login, name, age, gender) VALUES (:password, :login, :name, :age, :gender)';
             $stmt = $db->dbh->prepare($sql);
             $result = $stmt->execute([
@@ -35,13 +35,13 @@ class RegistrationController
             if (!$user->isPasswordValid()) {
                 echo "Пароль должен быть минимум 6 символов";
             }
-            if (!$user->isPasswordValid() || $user->password !== $user->confirmPassword) {
+            if (!$user->isPasswordValid() || !$user->isConfirmValid()) {
                 include(__DIR__ . '/../view/reg_form.html');
             }
             if ($user->isAgeSmall()) {
                 echo "Сюда нельзя!";
             }
-            if ($user->password !== $user->confirmPassword) {
+            if ($user->isConfirmValid()) {
                 echo "Введенные пароли не совпадают!";
             }
         }
