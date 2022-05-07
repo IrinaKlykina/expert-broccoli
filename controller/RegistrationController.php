@@ -23,12 +23,9 @@ class RegistrationController
         $sth->execute();
         $data = $sth->fetchAll();
 
-
         $user = new \model\User($_POST);
 
-
         $number = strlen($user->password);
-        
 
 
         if (($number >= 6) && ($user->age >= 18) && ($user->password == $user->confirmPassword)) {
