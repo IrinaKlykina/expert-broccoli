@@ -24,18 +24,9 @@ class User
         $this->passwordLength = strlen($this->password);
     }
 
-    public function isPasswordBig()
+    public function isPasswordValid()
     {
         if ($this->passwordLength >= 6) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function isPasswordSmall()
-    {
-        if ($this->passwordLength < 6) {
             return true;
         } else {
             return false;

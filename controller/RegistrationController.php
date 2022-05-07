@@ -11,7 +11,7 @@ class RegistrationController
     {
         require_once 'model/User.php';
 
-        if (empty($_POST)) {
+        if (!empty($_POST)) {
             include(__DIR__ . '/../view/reg_form.html');
         }
         $db = new \model\Database();
@@ -21,7 +21,7 @@ class RegistrationController
 
         $user = new \model\User($_POST);
 
-        if ($user->isPasswordBig() && $user->isAgeBig() && $user->password == $user->confirmPassword) {
+        if ($user->isPasswordValid() && $user->isAgeBig() && $user->password == $user->confirmPassword) {
             $sql = 'INSERT INTO user (password, login, name, age, gender) VALUES (:password, :login, :name, :age, :gender)';
             $stmt = $db->dbh->prepare($sql);
             $result = $stmt->execute([
@@ -32,10 +32,10 @@ class RegistrationController
                 'gender' => $user->gender,
             ]);
         } else {
-            if (!$user->isPasswordSmall()) {
+            if (!$user->isPasswordValid()) {
                 echo "Пароль должен быть минимум 6 символов";
             }
-            if (!$user->isPasswordSmall() || $user->password !== $user->confirmPassword) {
+            if (!$user->isPasswordValid() || $user->password !== $user->confirmPassword) {
                 include(__DIR__ . '/../view/reg_form.html');
             }
             if ($user->isAgeSmall()) {
