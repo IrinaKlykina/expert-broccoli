@@ -7,10 +7,10 @@ class Publish
     public $headline;
     public $body;
 
-    public function __construct($post )
+    public function __construct($post)
     {
         $this->headline = $post['headline'];
-        $this->body = $post['post'];
+        $this->body = $post['body'];
 
         $this->number = mb_strlen($this->headline);
         $this->numberOfLetters = mb_strlen($this->body);
