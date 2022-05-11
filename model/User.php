@@ -41,18 +41,9 @@ class User
         }
     }
 
-    public function isAgeBig()
+    public function isAgeValid()
     {
         if ($this->age >= 18) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function isAgeSmall()
-    {
-        if ($this->age < 18) {
             return true;
         } else {
             return false;
