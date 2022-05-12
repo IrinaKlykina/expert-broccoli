@@ -31,6 +31,7 @@ class RegistrationController
                 'age' => $user->age,
                 'gender' => $user->gender,
             ]);
+            print "Пользователь зарегистрирован";
         } else {
             if (!$user->isPasswordValid()) {
                 echo "Пароль должен быть минимум 6 символов";

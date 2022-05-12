@@ -16,10 +16,11 @@ if (!empty($_GET['action'])) {
     $action = 'registration';
 }
 
+
 if ($action == 'post') {
     $PostController->indexAct();
 } elseif ($action == 'registration') {
     $registrationController->indexAction();
 }
 
-
+?>

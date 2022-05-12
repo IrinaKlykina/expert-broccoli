@@ -2,7 +2,7 @@
 
 namespace model;
 
-class Publish
+class Post
 {
     public $headline;
     public $body;
@@ -15,17 +15,24 @@ class Publish
         $this->number = mb_strlen($this->headline);
         $this->numberOfLetters = mb_strlen($this->body);
     }
-    public function isNumberValid() {
+
+    public function isNumberValid()
+    {
         if ($this->number > 2 && $this->number < 50) {
             return true;
         } else {
             return false;
         }
     }
-    public function isNumberOfLetters() {
-    if  ($this->numberOfLetters >= 10 && $this->numberOfLetters <= 250) {
-        return true;
-    } else {
-        return false;
+
+    public function isNumberOfLetters()
+    {
+        if ($this->numberOfLetters >= 10 && $this->numberOfLetters <= 250) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
+
+?>

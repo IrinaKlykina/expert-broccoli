@@ -9,34 +9,36 @@ class PostController
 
     public function indexAct()
     {
-        require_once 'model/Publish.php';
+        require_once 'model/Post.php';
 
         if (!empty ($_POST)) {
-            include(__DIR__ . '/view/index.html');
+            include(__DIR__ . '/../view/index.html');
         }
         $db = new \model\Database();
         $data = $db->getAllPosts();
 
-        if ($publish->isNumberOfLetters() && $publish->isNumberValid()) {
+        $post = new \model\Post($_POST);
+
+        if ($post->isNumberOfLetters() && $post->isNumberValid()) {
 
             $sql = 'INSERT INTO my_post (headline, body) VALUES (:headline, :body)';
             $stmt = $db->dbh->prepare($sql);
             $result = $stmt->execute([
-                'headline' => $publish->headline,
-                'body' => $publish->body,
+                'headline' => $post->headline,
+                'body' => $post->body,
             ]);
             print "Ваш пост сохранен";
         } else {
-            if (!$publish->isNumberValid()) {
+            if (!$post->isNumberValid()) {
                 echo "Заголовок должен быть больше 2 символов";
             }
-            if (!$publish->isNumberValid()) {
+            if (!$post->isNumberValid()) {
                 echo "Заголовок должен быть меньше 50 символов";
             }
-            if (!$publish->isNumberOfLetters()) {
+            if (!$post->isNumberOfLetters()) {
                 echo "Текст поста должен быть больше 10 символов";
             }
-            if (!$publish->isNumberOfLetters()) {
+            if (!$post->isNumberOfLetters()) {
                 echo "Текст поста должен быть меньше 250 символов";
             }
         }
