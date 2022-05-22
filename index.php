@@ -10,15 +10,15 @@ require_once (__DIR__ . '/controller/PostController.php');
 $PostController = new \controller\PostController();
 $registrationController = new \controller\RegistrationController();
 
-if (!empty($_GET['action'])) {
-    $action = $_GET['action'];
+if (!empty($_POST['action'])) {
+    $action = $_POST['action'];
 } else {
     $action = 'registration';
 }
 
 
 if ($action == 'post') {
-    $PostController->indexAct();
+    $PostController->indexAction();
 } elseif ($action == 'registration') {
     $registrationController->indexAction();
 }

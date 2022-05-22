@@ -10,7 +10,7 @@ class Database
 
     public function __construct()
     {
-       $this->dbh= new PDO('mysql:host=localhost;dbname=test', 'root', '');
+        $this->dbh = new PDO('mysql:host=localhost;dbname=test', 'test_user', 'password');
     }
 
     public function getAllPosts()
