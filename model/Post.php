@@ -6,19 +6,21 @@ class Post
 {
     public $headline;
     public $body;
+    public $headlineLength;
+    public $bodyLength;
 
     public function __construct($post)
     {
         $this->headline = $post['headline'];
         $this->body = $post['body'];
 
-        $this->number = mb_strlen($this->headline);
-        $this->numberOfLetters = mb_strlen($this->body);
+        $this->headlineLength = mb_strlen($this->headline);
+        $this->bodyLength = mb_strlen($this->body);
     }
 
     public function isNumberValid()
     {
-        if ($this->number > 2 && $this->number < 50) {
+        if ($this->headlineLength > 2 && $this->headlineLength < 50) {
             return true;
         } else {
             return false;
@@ -27,12 +29,10 @@ class Post
 
     public function isNumberOfLetters()
     {
-        if ($this->numberOfLetters >= 10 && $this->numberOfLetters <= 250) {
+        if ($this->bodyLength >= 10 && $this->bodyLength <= 250) {
             return true;
         } else {
             return false;
         }
     }
 }
-
-?>
