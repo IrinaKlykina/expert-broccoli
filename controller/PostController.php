@@ -7,7 +7,7 @@ use model\Database;
 class PostController
 {
 
-   //ше  public function indexAction()
+    public function indexAction()
     {
         require_once 'model/Post.php';
 
