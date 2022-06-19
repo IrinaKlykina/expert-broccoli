@@ -10,17 +10,24 @@ require_once (__DIR__ . '/controller/PostController.php');
 $PostController = new \controller\PostController();
 $registrationController = new \controller\RegistrationController();
 
-if (!empty($_POST['action'])) {
+
+require_once(__DIR__ . '/components/Router.php');
+
+
+$router = new Router();
+$router->run();
+
+   /* if (!empty($_POST['action'])) {
     $action = $_POST['action'];
 } else {
     $action = 'registration';
 }
 
 
-if ($action == 'post') {
+    if ($action == 'post') {
     $PostController->indexAction();
 } elseif ($action == 'registration') {
     $registrationController->indexAction();
-}
+}*/
 
 ?>

@@ -31,9 +31,9 @@ class RegistrationController
                     'age' => $user->age,
                     'gender' => $user->gender,
                 ]);
-                print "Пользователь зарегистрирован";
+               /* print "Пользователь зарегистрирован";
                 //todo: возможно, тут плохо. Исправить
-                include __DIR__ . '/../view/index.html';
+                include __DIR__ . '/../view/index.html';*/
 
             } else {
                 if (!$user->isPasswordValid()) {
