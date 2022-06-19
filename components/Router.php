@@ -2,54 +2,63 @@
 
 namespace components;
 
+use controller\AboutController;
+use controller\PostController;
+use controller\RegistrationController;
+
 class Router
 {
-    public function run()
+    public $routes;
+    public $action;
+
+    public function __construct()
     {
         //todo: написать автозагрузчик
         require_once(__DIR__ . '/../model/Database.php');
         require_once(__DIR__ . '/../controller/RegistrationController.php');
         require_once(__DIR__ . '/../controller/PostController.php');
-
-        $PostController = new \controller\PostController();
-        $registrationController = new \controller\RegistrationController();
-        $aboutController = new \controller\AboutController();
-        $commentController = new \controller\CommentController();
-        $profileController = new \controller\ProfileController();
+        require_once(__DIR__ . '/../controller/AboutController.php');
+        require_once(__DIR__ . '/../controller/CommentController.php');
+        require_once(__DIR__ . '/../controller/ProfileController.php');
 
 
         if (!empty($_POST['action'])) {
-            $action = $_POST['action'];
+            $this->action = $_POST['action'];
         } else {
-            $action = 'registration';
+            $this->action = 'registration';
         }
+
+        $this->routes = [
+            'registration' => new RegistrationController(),
+            'post' => new PostController(),
+            'about' => new AboutController(),
+        ];
     }
 
-    public function action()
+    public function run()
     {
-        $action ==
-        if ($action == 'post') {
-            $PostController->indexAction();
-        } elseif ($action == 'registration') {
-            $registrationController->indexAction();
+        foreach ($this->routes as $kye => $controller) {
+            if ($this->action == $kye) {
+                $controller->indexAction();
+            }
         }
-
-        if ($action == 'about') {
-            $PostController->indexAction();
-        } elseif ($action == 'registration') {
-            $registrationController->indexAction();
-        }
-
-        if ($action == 'comment') {
-            $PostController->indexAction();
-        } elseif ($action == 'registration') {
-            $registrationController->indexAction();
-        }
-
-        if ($action == 'profile') {
-            $PostController->indexAction();
-        } elseif ($action == 'registration') {
-            $registrationController->indexAction();
-        }
+//
+//        switch ($action) {
+//            case 'registration';
+//                $registrationController->indexAction();
+//                break;
+//            case 'post';
+//                $postController->indexAction();
+//                break;
+//            case 'about';
+//                $aboutController->indexAction();
+//                break;
+//            case 'comment';
+//                $commentController->indexAction();
+//                break;
+//            case 'profile';
+//                $profileController->indexAction();
+//                break;
+//        }
     }
 }
