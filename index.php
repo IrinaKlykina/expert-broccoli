@@ -16,7 +16,6 @@ if (!empty($_POST['action'])) {
     $action = 'registration';
 }
 
-
 if ($action == 'post') {
     $PostController->indexAction();
 } elseif ($action == 'registration') {
