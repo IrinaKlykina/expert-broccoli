@@ -13,6 +13,10 @@ class Router
 
         $PostController = new \controller\PostController();
         $registrationController = new \controller\RegistrationController();
+        $aboutController = new \controller\AboutController();
+        $commentController = new \controller\CommentController();
+        $profileController = new \controller\ProfileController();
+
 
         if (!empty($_POST['action'])) {
             $action = $_POST['action'];
@@ -22,6 +26,24 @@ class Router
 
 
         if ($action == 'post') {
+            $PostController->indexAction();
+        } elseif ($action == 'registration') {
+            $registrationController->indexAction();
+        }
+
+        if ($action == 'about') {
+            $PostController->indexAction();
+        } elseif ($action == 'registration') {
+            $registrationController->indexAction();
+        }
+
+        if ($action == 'comment') {
+            $PostController->indexAction();
+        } elseif ($action == 'registration') {
+            $registrationController->indexAction();
+        }
+
+        if ($action == 'profile') {
             $PostController->indexAction();
         } elseif ($action == 'registration') {
             $registrationController->indexAction();
