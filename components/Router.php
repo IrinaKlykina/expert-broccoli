@@ -7,9 +7,9 @@ class Router
     public function run()
     {
         //todo: написать автозагрузчик
-        require_once (__DIR__ . '/../model/Database.php');
-        require_once (__DIR__ . '/../controller/RegistrationController.php');
-        require_once (__DIR__ . '/../controller/PostController.php');
+        require_once(__DIR__ . '/../model/Database.php');
+        require_once(__DIR__ . '/../controller/RegistrationController.php');
+        require_once(__DIR__ . '/../controller/PostController.php');
 
         $PostController = new \controller\PostController();
         $registrationController = new \controller\RegistrationController();
@@ -23,8 +23,11 @@ class Router
         } else {
             $action = 'registration';
         }
+    }
 
-
+    public function action()
+    {
+        $action ==
         if ($action == 'post') {
             $PostController->indexAction();
         } elseif ($action == 'registration') {
