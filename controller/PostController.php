@@ -26,7 +26,7 @@ class PostController
             $result = $stmt->execute([
                 'headline' => $post->headline,
                 'body' => $post->body,
-                'author_id' => 10,
+                'author_id' => 1,
             ]);
             if ($result) {
                 echo 'Ваш пост сохранен';

@@ -8,3 +8,4 @@ include_once __DIR__ . '/components/Router.php';
 $router = new \components\Router();
 $router->run();
 
+require_once __DIR__ . '/components/autoload.php';
