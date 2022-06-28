@@ -27,14 +27,13 @@ class Router
         if (!empty($_POST['action'])) {
             $this->action = $_POST['action'];
         } else {
-            $this->action = 'comment';
+            $this->action = 'registration';
         }
 
         $this->routes = [
             'registration' => new RegistrationController(),
             'post' => new PostController(),
             'about' => new AboutController(),
-            'comment' => new CommentController(),
         ];
     }
 
