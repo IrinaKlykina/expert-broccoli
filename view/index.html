@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -9,12 +9,31 @@
 <div class="container">
 <form action="../index.php" method="post">
 
-	<p> Заголовок <input type="text" name="headline"/> </p>
-	
-	<p> Текст <input type="text" name="body"/> </p>
+	<br>
+
+	<div class="input-group input-group-lg">
+		<div class="input-group-prepend" >
+			<span class="input-group-text" id="inputGroup-sizing-lg">Заголовок</span>
+		</div>
+		<input type="text" name="headline" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+	</div>
+
+	<br>
+
+	<div class="input-group">
+		<div class="input-group-prepend">
+			<span class="input-group-text" >Текст поста</span>
+		</div>
+		<textarea class="form-control" name="body" aria-label="With textarea"></textarea>
+	</div>
+
+	<br>
+
 	<input type="hidden" name="action" value="post"/>
 
-	<p> <input type="submit" Value="Отправить" name="submit"> </p>
+	<div class="col-12">
+		<button class="btn btn-primary" name="submit" type="submit">Отправить</button>
+	</div>
 	
 </div>
 </form>
