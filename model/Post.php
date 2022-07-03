@@ -35,4 +35,17 @@ class Post
             return false;
         }
     }
+    public function temp()
+    {
+        $db = new Database();
+
+        $sql = 'INSERT INTO my_post (headline, body, author_id) VALUES (:headline, :body, :author_id)';
+        $stmt = $db->dbh->prepare($sql);
+        $result = $stmt->execute([
+            'headline' => $this->headline,
+            'body' => $this->body,
+            'author_id' => 1,
+        ]);
+        return $result;
+    }
 }

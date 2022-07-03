@@ -50,4 +50,19 @@ class User
         }
     }
 
+    public function save()
+    {
+        $db = new Database();
+
+        $sql = 'INSERT INTO user (password, login, name, age, gender) VALUES (:password, :login, :name, :age, :gender)';
+        $stmt = $db->dbh->prepare($sql);
+        $result = $stmt->execute([
+            'login' => $this->login,
+            'name' => $this->name,
+            'password' => $this->password,
+            'age' => $this->age,
+            'gender' => $this->gender,
+        ]);
+    }
+
 }

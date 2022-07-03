@@ -5,11 +5,12 @@
 
     $db = new \model\Database();
     $db ->getAllPosts();
-    var_dump($db);
 
     $post = $db->getAllPosts();
-    var_dump($post);
+echo '<pre>';
+        var_dump($post);
+echo '</pre>';
 
     foreach ($post as $result) {
-        $headline[] = array('headline' -> $result['headline']);
+        $headline[] = array('headline' -> $result ['headline']);
     }

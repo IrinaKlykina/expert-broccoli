@@ -21,13 +21,8 @@ class PostController
 
         if ($post->isNumberOfLetters() && $post->isNumberValid()) {
 
-            $sql = 'INSERT INTO my_post (headline, body, author_id) VALUES (:headline, :body, :author_id)';
-            $stmt = $db->dbh->prepare($sql);
-            $result = $stmt->execute([
-                'headline' => $post->headline,
-                'body' => $post->body,
-                'author_id' => 1,
-            ]);
+
+            $result = $post->temp();
             if ($result) {
                 echo 'Ваш пост сохранен';
             } else {
