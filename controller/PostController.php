@@ -7,7 +7,7 @@ use model\Database;
 class PostController
 {
 
-    public function indexAction()
+    public function createAction()
     {
         require_once 'model/Post.php';
 
@@ -41,6 +41,24 @@ class PostController
             if (!$post->isNumberOfLetters()) {
                 echo 'Текст поста должен быть меньше 250 символов';
             }
+        }
+    }
+
+    public function indexAction()
+    {
+        require_once  __DIR__. "/../model/Database.php";
+
+        $db = new \model\Database();
+        $db ->getAllPosts();
+
+        $post = $db->getAllPosts();
+
+        foreach ($post as $key => $result) {
+            echo '<pre>';
+            echo $result ['login'];
+            echo $result ['headline'];
+            echo $result ['body'];
+            echo '</pre>';
         }
     }
 }

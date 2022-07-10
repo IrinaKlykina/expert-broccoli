@@ -7,9 +7,6 @@
     $db ->getAllPosts();
 
     $post = $db->getAllPosts();
-echo '<pre>';
-      //  var_dump($post);
-echo '</pre>';
 
     foreach ($post as $key => $result) {
         echo '<pre>';

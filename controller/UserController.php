@@ -5,9 +5,9 @@ namespace controller;
 use PDO;
 use model\Database;
 
-class RegistrationController
+class UserController
 {
-    public function indexAction()
+    public function registrationAction()
     {
         require_once 'model/User.php';
 
