@@ -9,7 +9,6 @@ use controller\UserController;
 
 class Router
 {
-    public $routes;
     public $action;
 
     public function __construct()
@@ -19,20 +18,23 @@ class Router
         } else {
             $this->action = 'registration';
         }
-        $this->action = 'post/create';
-        $this->routes = [
-            'registration' => new UserController(),
-            'post' => new PostController(),
-            'about' => new AboutController(),
-        ];
     }
 
     public function run()
     {
-        foreach ($this->routes as $kye => $controller) {
-            if ($this->action == $kye) {
+        switch ($this->action) {
+            case 'user/registration':
+                $controller = new UserController();
+                $controller->registrationAction();
+                break;
+            case 'post/create':
+                $controller = new PostController();
+                $controller->createAction();
+                break;
+            case 'post/index':
+                $controller = new PostController();
                 $controller->indexAction();
-            }
+                break;
         }
     }
 }

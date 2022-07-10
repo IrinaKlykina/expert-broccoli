@@ -12,7 +12,7 @@ class UserController
         require_once 'model/User.php';
 
         if (empty($_POST)) {
-            include(__DIR__ . '/../view/reg_form.html');
+            include(__DIR__ . '/../view/userRegistration.html');
         } else {
             $user = new \model\User($_POST);
 
@@ -20,14 +20,14 @@ class UserController
                 $user->save();
                 print "Пользователь зарегистрирован";
                 //todo: возможно, тут плохо. Исправить
-                include __DIR__ . '/../view/index.html';
+                include __DIR__ . '/../view/postCreate.html';
 
             } else {
                 if (!$user->isPasswordValid()) {
                     echo "Пароль должен быть минимум 6 символов";
                 }
                 if (!$user->isPasswordValid() || !$user->isConfirmValid()) {
-                    include(__DIR__ . '/../view/reg_form.html');
+                    include(__DIR__ . '/../view/userRegistration.html');
                 }
                 if (!$user->isAgeValid()) {
                     echo "Сюда нельзя!";
