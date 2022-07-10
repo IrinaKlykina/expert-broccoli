@@ -8,9 +8,13 @@
 
     $post = $db->getAllPosts();
 echo '<pre>';
-        var_dump($post);
+      //  var_dump($post);
 echo '</pre>';
 
-    foreach ($post as $result) {
-        $headline[] = array('headline' -> $result ['headline']);
+    foreach ($post as $key => $result) {
+        echo '<pre>';
+        echo $result ['login'];
+        echo $result ['headline'];
+        echo $result ['body'];
+        echo '</pre>';
     }
