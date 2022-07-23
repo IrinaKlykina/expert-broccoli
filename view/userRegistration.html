@@ -9,45 +9,59 @@
 <div class="container">
  <form action="index.php" method="post">
 
-  <div class="container">
-   <form class="form">
-    <div class="row">
-     <div class="input-group mb-3">
-      <span class="input-group-text" id="basic-addon1">Ваш логин:</span>
-      <input type="text" name="login" id="login" class="form-control is-valid" placeholder="Ваш логин:" aria-label="Ваш логин:" aria-describedby="basic-addon1">
-     </div>
-     <div class="row">
-      <div class="input-group mb-3">
-       <span class="input-group-text" id="basic-addon1">Ваше имя:</span>
-       <input type="text" name="name" id="name" class="form-control is-valid" placeholder="Ваше имя:" aria-label="Ваше имя:" aria-describedby="basic-addon1">
+     <div class="col-md-4">
+      <label for="validationCustomUsername" class="form-label">Ваш логин:</label>
+      <div class="input-group has-validation">
+       <span class="input-group-text" id="inputGroupPrepend"></span>
+       <input type="text" name="login" class="form-control" id="validationCustomUsername" placeholder="Введите логин" aria-describedby="inputGroupPrepend" required>
       </div>
+     </div>
+
+     <div class="form-row">
+      <div class="col-md-4 mb-3">
+       <label for="input-name">Ваше имя:</label>
+       <input type="text" name="name" class="form-control" id="input-name"
+              placeholder="Введите имя" value="" required>
+
       <div class="row">
        <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">Ваш пароль:</span>
-        <input type="text" name="password" id="Password" class="form-control is-valid" placeholder="Пароль должен быть 6 символов или больше" aria-label="Ваше имя:" aria-describedby="basic-addon1">
+        <input type="text" name="password" id="Password" class="form-control is-valid" placeholder="Введите ваш пароль!"  aria-describedby="basic-addon1" required>
+             <div class="invalid-feedback">
+      Должно быть 6 символов или больше!
+             </div>
        </div>
       </div>
+
       <div class="row">
        <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">Повторите ваш пароль:</span>
-        <input type="text" name="confirmPassword" id="confirmPassword" class="form-control is-valid" placeholder="Пароль должен повторятся" aria-label="Ваше имя:" aria-describedby="basic-addon1">
+        <input type="text" name="confirmPassword" id="confirmPassword" class="form-control is-valid" placeholder="Повторите ваш пароль!" aria-describedby="basic-addon1" required>
+           <div class="invalid-feedback">
+      Пароль должен повторяться!
+    </div>
        </div>
       </div>
       <div class="row">
        <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">Ваш возраст:</span>
-        <input type="text" name="age" id="age" class="form-control is-valid" placeholder="Пользователь должен быть совершеннолетним" aria-label="Ваше имя:" aria-describedby="basic-addon1">
+        <input type="text" name="age" id="age" class="form-control is-valid" placeholder="Пользователь должен быть совершеннолетним"  aria-describedby="basic-addon1" required>
         </div>
       </div>
-      <div class="row">
-       <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Ваш пол:</span>
-        <input type="text" name="gender" id="gender" class="form-control is-valid" placeholder="Ваш пол" aria-label="Ваш пол:" aria-describedby="basic-addon1">
-       </div>
-      </div>
       <br>
+      <div class="row">
+       <label for="validationCustom06" class="form-label">Ваш пол:</label>
+       <select class="custom-select custom-select-lg" name='gender' id="gender" required>
+        <option selected>Выберите свой пол...</option>
+        <option value="1">Мужчина</option>
+        <option value="2">Женщина</option>
+       </select>
+      </div>
+       <br>
 
-  <input type="hidden" name="action" value="registration" />
+
+
+        <input type="hidden" name="action" value="user/registration" />
       <div class="col-12">
        <button class="btn btn-primary" name="submit" type="submit">Отправить форму</button>
       </div>

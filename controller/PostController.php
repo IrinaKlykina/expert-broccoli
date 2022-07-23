@@ -24,7 +24,8 @@ class PostController
 
             $result = $post->temp();
             if ($result) {
-                echo 'Ваш пост сохранен';
+                $this->indexAction();
+           //  to do убрать индекс - echo 'Ваш пост сохранен';
             } else {
                 echo 'Ошибка сохранения в бд';
             }

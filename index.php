@@ -7,6 +7,7 @@ spl_autoload_register(function ($class_name) {
     include $class_name . '.php';
 });
 
+
 include_once __DIR__ . '/components/Router.php';
 
 $router = new \components\Router();

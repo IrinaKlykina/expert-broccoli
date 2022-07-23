@@ -16,7 +16,7 @@ class Router
         if (!empty($_POST['action'])) {
             $this->action = $_POST['action'];
         } else {
-            $this->action = 'registration';
+            $this->action = 'user/registration';
         }
     }
 
