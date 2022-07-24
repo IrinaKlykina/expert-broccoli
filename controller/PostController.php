@@ -2,27 +2,21 @@
 
 namespace controller;
 
-use PDO;
 use model\Database;
 class PostController
 {
 
     public function createAction()
     {
-        require_once 'model/Post.php';
-
         if (!empty ($_POST)) {
             include(__DIR__ . '/../view/postCreate.html');
         }
-        $db = new \model\Database();
-        $data = $db->getAllPosts();
-
         $post = new \model\Post($_POST);
 
         if ($post->isNumberOfLetters() && $post->isNumberValid()) {
 
 
-            $result = $post->temp();
+            $result = $post->save();
             if ($result) {
                 $this->indexAction();
            //  to do убрать индекс - echo 'Ваш пост сохранен';
@@ -47,11 +41,8 @@ class PostController
 
     public function indexAction()
     {
-        require_once  __DIR__. "/../model/Database.php";
-
-        $db = new \model\Database();
+        $db = new Database();
         $db ->getAllPosts();
-
         $post = $db->getAllPosts();
 
         foreach ($post as $key => $result) {

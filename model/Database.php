@@ -16,7 +16,7 @@ class Database
     public function getAllPosts()
     {
 
-        $sth = $this->dbh->prepare('SELECT * from my_post join user ORDER BY id DESC');
+        $sth = $this->dbh->prepare('SELECT * from my_post join user on my_post.author_id=user.id ORDER BY my_post.id DESC');
         $sth->execute();
         $data = $sth->fetchAll();
 

@@ -35,7 +35,7 @@ class Post
             return false;
         }
     }
-    public function temp()
+    public function save()
     {
         $db = new Database();
 

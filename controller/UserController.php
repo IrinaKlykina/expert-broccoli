@@ -9,8 +9,6 @@ class UserController
 {
     public function registrationAction()
     {
-        require_once 'model/User.php';
-
         if (empty($_POST)) {
             include(__DIR__ . '/../view/userRegistration.html');
         } else {
