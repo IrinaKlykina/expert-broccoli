@@ -24,12 +24,10 @@
               placeholder="Введите имя" value="" required>
 
       <div class="row">
-       <div class="input-group mb-3">
+       <div class="input-group mb-3"  >
         <span class="input-group-text" id="basic-addon1">Ваш пароль:</span>
-        <input type="text" name="password" id="Password" class="form-control is-valid" placeholder="Введите ваш пароль!"  aria-describedby="basic-addon1" required>
-             <div class="invalid-feedback">
-      Должно быть 6 символов или больше!
-             </div>
+        <input type="text" onclick="checkPassword();" name="password" id="Password" class="form-control is-valid" placeholder="Введите ваш пароль!"  aria-describedby="basic-addon1" required>
+
        </div>
       </div>
 
