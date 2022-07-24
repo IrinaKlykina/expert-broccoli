@@ -4,6 +4,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
 spl_autoload_register(function ($class_name) {
+    if (!file_exists($class_name . '.php')) {
+        $class_name = str_replace('\\', '/', $class_name);
+    }
     include $class_name . '.php';
 });
 
