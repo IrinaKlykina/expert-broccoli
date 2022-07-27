@@ -39,11 +39,12 @@ class PostController
         }
     }
 
+
     public function indexAction()
     {
         $db = new Database();
-        $db ->getAllPosts();
-        $post = $db->getAllPosts();
+        $temp = Post::getAllPosts();
+        $temp();
 
         foreach ($post as $key => $result) {
             echo '<pre>';

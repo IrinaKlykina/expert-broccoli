@@ -13,7 +13,7 @@ class Database
         $this->dbh = new PDO('mysql:host=localhost;dbname=test', 'root', '');
     }
 
-    public function getAllPosts()
+   /* public function getAllPosts()
     {
 
         $sth = $this->dbh->prepare('SELECT * from my_post join user on my_post.author_id=user.id ORDER BY my_post.id DESC');
@@ -21,6 +21,6 @@ class Database
         $data = $sth->fetchAll();
 
         return $data;
-    }
+    }*/
 }
 

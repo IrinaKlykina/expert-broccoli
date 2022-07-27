@@ -2,8 +2,7 @@
 
 namespace components;
 
-use controller\AboutController;
-use controller\CommentController;
+
 use controller\PostController;
 use controller\UserController;
 

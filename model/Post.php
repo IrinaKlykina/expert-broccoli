@@ -35,6 +35,17 @@ class Post
             return false;
         }
     }
+
+    public static function getAllPosts()
+    {
+
+        $sth = $dbh->prepare('SELECT * from my_post join user on my_post.author_id=user.id ORDER BY my_post.id DESC');
+        $sth->execute();
+        $data = $sth->fetchAll();
+
+        return $data;
+    }
+
     public function save()
     {
         $db = new Database();
