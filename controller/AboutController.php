@@ -12,7 +12,7 @@ class AboutController
         require_once 'model/Post.php';
 
         if (!empty ($_POST)) {
-            include(__DIR__ . '/../view/postCreate.html');
+            include(__DIR__ . '/../view/postCreate.php');
         }
         $db = new \model\Database();
         $data = $db->getAllPosts();

@@ -2,22 +2,18 @@
 
 namespace controller;
 
-use model\Database;
 use model\Post;
 
 class PostController
 {
-
     public function createAction()
     {
         if (!empty ($_POST)) {
-            include(__DIR__ . '/../view/postCreate.html');
+            include_once __DIR__ . '/../view/postCreate.php';
         }
-        $post = new \model\Post($_POST);
+        $post = new Post($_POST);
 
         if ($post->isNumberOfLetters() && $post->isNumberValid()) {
-
-
             $result = $post->save();
             if ($result) {
                 $this->indexAction();
@@ -41,17 +37,9 @@ class PostController
         }
     }
 
-
     public function indexAction()
     {
         $posts = Post::getAllPosts();
-
-        foreach ($posts as $post) {
-            echo '<pre>';
-            echo $post ['login'];
-            echo $post ['headline'];
-            echo $post ['body'];
-            echo '</pre>';
-        }
+        require_once __DIR__ . '/../view/postIndex.php';
     }
 }

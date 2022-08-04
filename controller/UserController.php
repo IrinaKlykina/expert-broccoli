@@ -10,7 +10,7 @@ class UserController
     public function registrationAction()
     {
         if (empty($_POST)) {
-            include(__DIR__ . '/../view/userRegistration.html');
+            include(__DIR__ . '/../view/userRegistration.php');
         } else {
             $user = new \model\User($_POST);
 
@@ -18,14 +18,14 @@ class UserController
                 $user->save();
                 print "Пользователь зарегистрирован";
                 //todo: возможно, тут плохо. Исправить
-                include __DIR__ . '/../view/postCreate.html';
+                include __DIR__ . '/../view/postCreate.php';
 
             } else {
                 if (!$user->isPasswordValid()) {
                     echo "Пароль должен быть минимум 6 символов";
                 }
                 if (!$user->isPasswordValid() || !$user->isConfirmValid()) {
-                    include(__DIR__ . '/../view/userRegistration.html');
+                    include(__DIR__ . '/../view/userRegistration.php');
                 }
                 if (!$user->isAgeValid()) {
                     echo "Сюда нельзя!";
