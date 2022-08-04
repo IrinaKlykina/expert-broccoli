@@ -3,14 +3,16 @@ namespace model;
 
 use PDO;
 
-
 class Database
 {
     public $dbh;
+    public $dsn;
 
     public function __construct()
     {
-        $this->dbh = new PDO('mysql:host=localhost;dbname=test', 'root', '');
+        $config = require_once __DIR__ . '/../config/db.php';
+        $this->dsn = $config['db'] . ':host=' . $config['host'] . ';dbname=' . $config['dbname'];
+        $this->dbh = new PDO($this->dsn, $config['user'], $config['password']);
     }
 
    /* public function getAllPosts()
