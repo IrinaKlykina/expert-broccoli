@@ -3,6 +3,8 @@
 namespace controller;
 
 use model\Database;
+use model\Post;
+
 class PostController
 {
 
@@ -42,15 +44,13 @@ class PostController
 
     public function indexAction()
     {
-        $db = new Database();
-        $temp = Post::getAllPosts();
-        $temp();
+        $posts = Post::getAllPosts();
 
-        foreach ($post as $key => $result) {
+        foreach ($posts as $post) {
             echo '<pre>';
-            echo $result ['login'];
-            echo $result ['headline'];
-            echo $result ['body'];
+            echo $post ['login'];
+            echo $post ['headline'];
+            echo $post ['body'];
             echo '</pre>';
         }
     }

@@ -38,8 +38,8 @@ class Post
 
     public static function getAllPosts()
     {
-
-        $sth = $dbh->prepare('SELECT * from my_post join user on my_post.author_id=user.id ORDER BY my_post.id DESC');
+        $db = new Database();
+        $sth = $db->dbh->prepare('SELECT * from my_post join user on my_post.author_id=user.id ORDER BY my_post.id DESC');
         $sth->execute();
         $data = $sth->fetchAll();
 

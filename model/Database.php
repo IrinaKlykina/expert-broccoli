@@ -10,7 +10,7 @@ class Database
 
     public function __construct()
     {
-        $config = require_once __DIR__ . '/../config/db.php';
+        $config = include __DIR__ . '/../config/db.php';
         $this->dsn = $config['db'] . ':host=' . $config['host'] . ';dbname=' . $config['dbname'];
         $this->dbh = new PDO($this->dsn, $config['user'], $config['password']);
     }
