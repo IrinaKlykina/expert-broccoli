@@ -19,7 +19,6 @@ class UserController
                 print "Пользователь зарегистрирован";
                 //todo: возможно, тут плохо. Исправить
                 include __DIR__ . '/../view/postCreate.php';
-
             } else {
                 if (!$user->isPasswordValid()) {
                     echo "Пароль должен быть минимум 6 символов";

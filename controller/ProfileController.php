@@ -4,6 +4,7 @@ namespace controller;
 
 use PDO;
 use model\Database;
+
 class ProfileController
 {
 
@@ -20,7 +21,6 @@ class ProfileController
         $post = new \model\Post($_POST);
 
         if ($post->isNumberOfLetters() && $post->isNumberValid()) {
-
             $sql = 'INSERT INTO my_post (headline, body, author_id) VALUES (:headline, :body, :author_id)';
             $stmt = $db->dbh->prepare($sql);
             $result = $stmt->execute([

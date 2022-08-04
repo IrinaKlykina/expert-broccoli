@@ -2,7 +2,6 @@
 
 namespace components;
 
-
 use controller\PostController;
 use controller\UserController;
 

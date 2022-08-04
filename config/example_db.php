@@ -1,4 +1,5 @@
 <?php
+
 return [
     'db' => 'mysql',
     'host' => 'localhost',

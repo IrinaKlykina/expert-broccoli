@@ -23,6 +23,7 @@ class User
 
         $this->passwordLength = strlen($this->password);
     }
+
     public function isConfirmValid()
     {
         if ($this->password == $this->confirmPassword) {

@@ -1,28 +1,32 @@
 body {
-    background-color:#ffffff;
+    background-color: #ffffff;
     margin: 0;
 }
+
 form {
     margin: 0 auto;
     width: 450px;
     height: 500px;
     padding: 20px;
 }
+
 .container {
     background-color: lightskyblue;
-    margin:10px;
+    margin: 10px;
     text-align: center;
 }
+
 input[type="text"] {
     width: 400px;
     height: 40px;
     font-size: 15px;
-    margin-top: 10 px;
+    margin-top: 10px;
     padding-right: 10px;
     border-radius: 20px/20px;
-    border:none;
+    border: none;
 
 }
+
 .form-group.has-error .help-block {
     display: block;
 }
@@ -30,12 +34,13 @@ input[type="text"] {
 .form-group .help-block {
     display: none;
 }
+
 select {
     width: 420px;
     height: 40px;
     font-size: 15px;
-    margin-top: 10 px;
+    margin-top: 10px;
     padding-right: 10px;
     border-radius: 20px/20px;
-    border:none;
+    border: none;
 }

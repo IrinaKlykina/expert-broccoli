@@ -57,6 +57,7 @@ class Post
             'body' => $this->body,
             'author_id' => 1,
         ]);
+
         return $result;
     }
 }

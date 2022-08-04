@@ -6,6 +6,5 @@ class CommentController
 {
     public function indexAction()
     {
-
     }
 }
