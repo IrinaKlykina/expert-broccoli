@@ -2,6 +2,10 @@
 
 namespace model;
 
+/**
+ * Модель для таблицы my_post
+ * todo: переименовать таблицу
+ */
 class Post
 {
     public $headline;
@@ -18,6 +22,9 @@ class Post
         $this->bodyLength = mb_strlen($this->body);
     }
 
+    /**
+     * @return bool
+     */
     public function isNumberValid()
     {
         if ($this->headlineLength > 2 && $this->headlineLength < 50) {
@@ -27,6 +34,9 @@ class Post
         }
     }
 
+    /**
+     * @return bool
+     */
     public function isNumberOfLetters()
     {
         if ($this->bodyLength >= 10 && $this->bodyLength <= 250) {
@@ -36,6 +46,9 @@ class Post
         }
     }
 
+    /**
+     * @return array|false
+     */
     public static function getAllPosts()
     {
         $db = new Database();
@@ -46,6 +59,9 @@ class Post
         return $data;
     }
 
+    /**
+     * @return bool
+     */
     public function save()
     {
         $db = new Database();

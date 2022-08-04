@@ -4,6 +4,9 @@ namespace model;
 
 use PDO;
 
+/**
+ * Класс - первичная обертка над базой
+ */
 class Database
 {
     public $dbh;

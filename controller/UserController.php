@@ -7,6 +7,9 @@ use model\Database;
 
 class UserController
 {
+    /**
+     * @return void
+     */
     public function registrationAction()
     {
         if (empty($_POST)) {

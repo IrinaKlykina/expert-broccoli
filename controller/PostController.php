@@ -6,6 +6,9 @@ use model\Post;
 
 class PostController
 {
+    /**
+     * @return void
+     */
     public function createAction()
     {
         if (!empty ($_POST)) {
@@ -37,6 +40,9 @@ class PostController
         }
     }
 
+    /**
+     * @return void
+     */
     public function indexAction()
     {
         $posts = Post::getAllPosts();

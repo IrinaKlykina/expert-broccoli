@@ -5,8 +5,14 @@ namespace components;
 use controller\PostController;
 use controller\UserController;
 
+/**
+ * Класс- маршрутизатор
+ */
 class Router
 {
+    /**
+     * @var mixed|string
+     */
     public $action;
 
     public function __construct()
@@ -18,6 +24,10 @@ class Router
         }
     }
 
+    /**
+     * Основной метод. который запускает экшены
+     * @return void
+     */
     public function run()
     {
         switch ($this->action) {
