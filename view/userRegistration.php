@@ -15,7 +15,6 @@
                     <input type="text" name="login" class="form-control" id="validationCustomUsername" placeholder="Введите логин" aria-describedby="inputGroupPrepend" required>
                 </div>
             </div>
-
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label for="input-name">Ваше имя:</label>
@@ -28,14 +27,12 @@
                         <input type="text" onclick="checkPassword();" name="password" id="Password" class="form-control is-valid" placeholder="Введите ваш пароль!" aria-describedby="basic-addon1" required>
                  </div>
             </div>
-
                 <div class="row">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Повторите ваш пароль:</span>
                         <input type="text" name="confirmPassword" id="confirmPassword" class="form-control is-valid" placeholder="Повторите ваш пароль!" aria-describedby="basic-addon1" required>
                 </div>
             </div>
-
             <div class="row">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Ваш возраст:</span>
@@ -43,7 +40,6 @@
                 </div>
              </div>
                 <br>
-
             <div class="row">
                     <label for="validationCustom06" class="form-label">Ваш пол:</label>
                     <select class="custom-select custom-select-lg" name='gender' id="gender" required>

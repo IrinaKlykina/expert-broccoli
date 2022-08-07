@@ -15,7 +15,6 @@
             <input type="text" name="headline" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
         </div>
         <br>
-
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">Текст поста</span>
