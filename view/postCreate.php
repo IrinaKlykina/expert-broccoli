@@ -12,8 +12,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-lg">Заголовок</span>
             </div>
-            <input type="text" name="headline" class="form-control" aria-label="Large"
-                   aria-describedby="inputGroup-sizing-sm">
+            <input type="text" name="headline" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
         </div>
         <br>
 
@@ -26,12 +25,10 @@
         <br>
 
         <input type="hidden" name="action" value="post/create"/>
-
         <div class="col-12">
             <button class="btn btn-primary" name="submit" type="submit">Отправить</button>
         </div>
-</div>
-</form>
-
+    </div>
+    </form>
 </body>
 </html>
