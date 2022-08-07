@@ -7,11 +7,8 @@ use model\Database;
 
 class ProfileController
 {
-
     public function indexAction()
     {
-        require_once 'model/Post.php';
-
         if (!empty ($_POST)) {
             include(__DIR__ . '/../view/postCreate.php');
         }

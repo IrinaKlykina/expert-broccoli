@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>The Latest posts</title>
-
 </head>
 <body>
 <div class="container mt-5 mb-5">

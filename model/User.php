@@ -23,7 +23,6 @@ class User
 
         $this->passwordLength = strlen($this->password);
     }
-
     public function isConfirmValid()
     {
         if ($this->password == $this->confirmPassword) {
@@ -32,7 +31,6 @@ class User
             return false;
         }
     }
-
     public function isPasswordValid()
     {
         if ($this->passwordLength >= 6) {
@@ -41,7 +39,6 @@ class User
             return false;
         }
     }
-
     public function isAgeValid()
     {
         if ($this->age >= 18) {
@@ -50,7 +47,6 @@ class User
             return false;
         }
     }
-
     public function save()
     {
         $db = new Database();
@@ -65,5 +61,4 @@ class User
             'gender' => $this->gender,
         ]);
     }
-
 }

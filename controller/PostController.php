@@ -20,7 +20,6 @@ class PostController
             $result = $post->save();
             if ($result) {
                 $this->indexAction();
-                //  to do убрать индекс - echo 'Ваш пост сохранен';
             } else {
                 echo 'Ошибка сохранения в бд';
             }
@@ -39,7 +38,6 @@ class PostController
             }
         }
     }
-
     /**
      * @return void
      */

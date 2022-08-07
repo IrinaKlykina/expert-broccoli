@@ -3,8 +3,7 @@
 namespace model;
 
 /**
- * Модель для таблицы my_post
- * todo: переименовать таблицу
+ * Модель для таблицы create_post
  */
 class Post
 {
@@ -21,7 +20,6 @@ class Post
         $this->headlineLength = mb_strlen($this->headline);
         $this->bodyLength = mb_strlen($this->body);
     }
-
     /**
      * @return bool
      */
@@ -33,7 +31,6 @@ class Post
             return false;
         }
     }
-
     /**
      * @return bool
      */
@@ -45,20 +42,18 @@ class Post
             return false;
         }
     }
-
     /**
      * @return array|false
      */
     public static function getAllPosts()
     {
         $db = new Database();
-        $sth = $db->dbh->prepare('SELECT * from my_post join user on my_post.author_id=user.id ORDER BY my_post.id DESC');
+        $sth = $db->dbh->prepare('SELECT * from create_post join user on create_post.author_id=user.id ORDER BY create_post.id DESC');
         $sth->execute();
         $data = $sth->fetchAll();
 
         return $data;
     }
-
     /**
      * @return bool
      */
@@ -66,7 +61,7 @@ class Post
     {
         $db = new Database();
 
-        $sql = 'INSERT INTO my_post (headline, body, author_id) VALUES (:headline, :body, :author_id)';
+        $sql = 'INSERT INTO create_post (headline, body, author_id) VALUES (:headline, :body, :author_id)';
         $stmt = $db->dbh->prepare($sql);
         $result = $stmt->execute([
             'headline' => $this->headline,
