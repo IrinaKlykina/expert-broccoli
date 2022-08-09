@@ -10,7 +10,7 @@
     <form action="index.php" method="post">
             <div class="col-md-4">
                     <label for="validationCustomUsername" class="form-label">Ваш логин:</label>
-                 <div class="input-group has-validation">
+                <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend"></span>
                     <input type="text" name="login" class="form-control" id="validationCustomUsername" placeholder="Введите логин" aria-describedby="inputGroupPrepend" required>
                 </div>

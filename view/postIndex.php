@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>The Latest posts</title>
+    <title>Последние посты</title>
 </head>
 <body>
 <div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <h4>Latest News</h4>
+            <h4>Последние посты</h4>
             <?php
             foreach ($posts as $post) { ?>
                 <li>
@@ -23,6 +23,7 @@
                     <b>Пост:</b>
                     <?= $post ['body'] ?>
                     <br>
+                    <a href="http://expert-broccoli/user-comment.php">Комментировать</a>
                 </li>
             <?php } ?>
             <ol class="timeline">

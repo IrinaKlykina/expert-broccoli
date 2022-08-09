@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="container">
-    <form action="../index.php" method="post">
+    <form action="/../index.php" method="post">
         <br>
         <div class="input-group input-group-lg">
             <div class="input-group-prepend">
